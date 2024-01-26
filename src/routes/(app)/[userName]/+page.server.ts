@@ -4,11 +4,12 @@ import { error } from '@sveltejs/kit';
 export async function load({ params }) {
     const userName = params.userName;
 
-    const userSearched = await getUser(userName);
+    const data = await getUser(userName);
 
-    if (userSearched) {
-        return {userSearched};
+    if (data.userSearched !== null) {
+        return data;
+    } else {
+        error(404, 'Not found');
     }
 
-    error(404, 'Not found');
 }

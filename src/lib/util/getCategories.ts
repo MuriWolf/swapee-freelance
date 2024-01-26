@@ -1,6 +1,7 @@
+import { PUBLIC_API_URL } from "$env/static/public";
+
 export async function getCategories(categorySearched?: string) {
-    const localUrl = 'http://localhost:5173/api/categories';
-    const response = await fetch(localUrl, {
+    const response = await fetch(PUBLIC_API_URL, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'

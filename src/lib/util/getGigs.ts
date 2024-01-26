@@ -1,6 +1,7 @@
+import { PUBLIC_API_URL } from "$env/static/public";
+
 export async function getGigs(categorySearched?: string) {
-    const localUrl = 'http://localhost:5173/api/gigs';
-    const response = await fetch(localUrl, {
+    const response = await fetch(PUBLIC_API_URL, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -10,7 +11,7 @@ export async function getGigs(categorySearched?: string) {
     let returnData = data;
 
     function includesCategorySearched(gig: any) {
-        if (gig.category.urlName == categorySearched) {
+        if (gig.category.slug == categorySearched) {
             return gig;
         }
     }

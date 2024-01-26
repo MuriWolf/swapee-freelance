@@ -1,26 +1,27 @@
+import { PUBLIC_API_URL } from "$env/static/public";
+
 export async function getUser(userNameSearched?: string) {
-    const localUrl = 'http://localhost:5173/api/users';
-    const response = await fetch(localUrl, {
+    const response = await fetch(PUBLIC_API_URL, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
     });
     const data = await response.json();
-    let returnData = null;
-
-    function includesUserName(user: any) {
-        if (user.username == userNameSearched) {
-            return user;
-        }
-    }
+    let userSearched = null;
 
     if (userNameSearched) {
         try {
-            returnData = data.filter(includesUserName)
+            for (let i = 0; i < data.length; i++) {
+                const user = data[i];
+                if (user.username == userNameSearched) {
+                    userSearched = user;
+                    break;
+                }
+            }
         } catch (error) {
             throw new Error('user not found');
         }
     }
-    return {returnData};
+    return { userSearched };
 }

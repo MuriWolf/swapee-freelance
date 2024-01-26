@@ -32,6 +32,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-vercel": "^5.1.0",
 		"bits-ui": "^0.15.1",
 		"clsx": "^2.1.0",
 		"embla-carousel-svelte": "^8.0.0-rc20",
