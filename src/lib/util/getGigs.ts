@@ -1,7 +1,7 @@
-import { PUBLIC_API_URL } from "$env/static/public";
+// import { PUBLIC_API_URL } from "$env/static/public";
 
 export async function getGigs(categorySearched?: string) {
-    const response = await fetch(`${PUBLIC_API_URL}/gigs`, {
+    const response = await fetch(`https://swapee-freelance.vercel.app/api/gigs`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
