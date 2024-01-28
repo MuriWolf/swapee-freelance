@@ -36,7 +36,7 @@
         <p class="font-semibold text-lg">budget:</p>
         <Input type="number" placeholder="min" bind:value={minBudget} />
         <Input type="number" placeholder="max" bind:value={maxBudget} />
-        <Button on:click={filterGigs} class="bg-swapee-purple focus:bg-swapee-purple active:scale-[0.98] active:border-b-2 transition-all border-2 border-b-4 border-black">Apply</Button>
+        <Button on:click={filterGigs} class="bg-swapee-purple hover:bg-swapee-purple active:scale-[0.98] active:border-b-2 transition-all border-2 border-b-4 border-black">Apply</Button>
     </form>
         
         {#if data.gigs.length > 0}
@@ -64,7 +64,7 @@
                 </section>
             {:else}
                 <p class="mt-6">We couldn't found any gigs with these filters! </p>
-                <Button class="mt-3 bg-swapee-purple focus:bg-swapee-purple active:scale-[0.98] active:border-b-2 transition-all border-2 border-b-4 border-black " on:click={resetFilters}>Reset Filters</Button>
+                <Button class="mt-3 bg-swapee-purple hover:bg-swapee-purple active:scale-[0.98] active:border-b-2 transition-all border-2 border-b-4 border-black " on:click={resetFilters}>Reset Filters</Button>
             {/if}
         {:else}
             <p class="mt-6">Nos gigs found. :(</p>
