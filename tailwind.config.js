@@ -15,6 +15,7 @@ const config = {
 		},
 		extend: {
 			colors: {
+				"swapee-purple": "#7105f3",
 				border: "hsl(var(--border) / <alpha-value>)",
 				input: "hsl(var(--input) / <alpha-value>)",
 				ring: "hsl(var(--ring) / <alpha-value>)",
@@ -55,7 +56,8 @@ const config = {
 				sm: "calc(var(--radius) - 4px)"
 			},
 			fontFamily: {
-				sans: [...fontFamily.sans]
+				sans: [...fontFamily.sans],
+				'Bebas-Neue': ['Bebas Neue', 'sans-serif']
 			}
 		}
 	},

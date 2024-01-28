@@ -8,7 +8,7 @@
 
 <main class="max-w-5xl mx-auto my-6">
     {#if data}
-        <h1 class="text-3xl font-semibold mb-6">{data.title}</h1>
+        <h1 class="text-3xl font-Bebas-Neue uppercase tracking-wider font-semibold mb-6">{data.title}</h1>
         <div class="flex gap-4 items-center mb-6">
             <div class="h-12 w-12 rounded-full overflow-hidden">
                 <img src={data.user.profileImageSrc} alt="" class="h-full">
@@ -23,11 +23,11 @@
             <img src={imgSrc} alt="">
         {/each}
         <section class="mt-6 mb-3">
-            <h2 class="text-2xl font-semibold">About this gig</h2>
+            <h2 class="text-2xl font-Bebas-Neue uppercase tracking-wider font-semibold">About this gig</h2>
             <p class="max-w-2xl">{data.description}</p>
         </section>
         <section class="mt-6 mb-6">
-            <h2 class="text-2xl font-semibold mb-3">About the seller</h2>
+            <h2 class="text-2xl font-Bebas-Neue uppercase tracking-wider font-semibold mb-3">About the seller</h2>
             <div class="flex gap-6">
                 <div class="h-24 w-24 rounded-full overflow-hidden">
                     <img src={data.user.profileImageSrc} alt="" class="h-full">
@@ -41,7 +41,7 @@
                 </div>
             </div>
         </section>
-        <section class="border-[1px] border-gray-400 rounded-md p-4">
+        <section class="border-[1px] border-black rounded-md p-4">
             <ul class="grid grid-cols-2 xl:grid-cols-3 gap-y-3">
                 <li>
                     <h3>From</h3>
@@ -64,7 +64,7 @@
                     <p class="font-medium">{data.user.languages[0]}</p>
                 </li>
             </ul>
-            <hr class="my-6">
+            <hr class="my-6 border-black">
             {data.user.description}
         </section>
     {/if}

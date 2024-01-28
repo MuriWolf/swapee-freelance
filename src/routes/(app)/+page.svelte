@@ -8,21 +8,24 @@
     } 
 </script>
 
-{#if data.categories}
-
-<Carousel.Root>
-    <Carousel.Content>
-        {#each data.categories as category} 
-            <a href={`/gigs?category=${category.urlName}`}>
-                <Carousel.Item class="basis-1/4 h-[400px]">
-                    <h1 class="text-xl">{category.title}</h1>
-                    <p>{category.subtitle}</p>
-                    <img src={category.imgSrc} class="h-full" alt="">
+<main class="mx-auto my-4">
+    {#if data.categories}
+    <Carousel.Root opts={{
+        dragFree: true,
+    }}>
+        <Carousel.Content class="gap-4 m-4 my-6">
+            {#each data.categories as category} 
+            <Carousel.Item class="block relative :basis-1/2 shadow-lg shadow-gray-300 p-4 rounded-md">
+                <a href={`/gigs?category=${category.urlName}`} class="">
+                    <h1 class="text-2xl text-gray-700 font-Bebas-Neue font-bold uppercase tracking-wider" >{category.title}</h1>
+                    <p class="text-gray-500">{category.subtitle}</p>
+                    <img src={category.imgSrc} class="mt-4 h-auto max-h-[350px]" alt="">
+                </a>
                 </Carousel.Item>
-            </a>
-        {/each}
+            {/each}
         </Carousel.Content>
-        <Carousel.Previous />
-        <Carousel.Next />
+        <!-- <Carousel.Previous />
+        <Carousel.Next /> -->
     </Carousel.Root>
-{/if}
+    {/if}
+</main>

@@ -29,32 +29,34 @@
 </script>
 
 <main class="mx-auto max-w-5xl mt-4">
-    <form class="flex gap-x-4 items-center">
-        <p>budget:</p>
+    {#if data}  
+    <h1 class="text-4xl font-Bebas-Neue uppercase tracking-wider font-bold mt-4">{data.category}</h1>
+    <p class="text-gray-500 mb-12">Explore the boundaries of art and technology with Swapee's {data.category} artists</p>
+    <form class="flex gap-x-4 items-center mt-4 mb-12">
+        <p class="font-semibold text-lg">budget:</p>
         <Input type="number" placeholder="min" bind:value={minBudget} />
         <Input type="number" placeholder="max" bind:value={maxBudget} />
-        <Button on:click={filterGigs}>Apply</Button>
+        <Button on:click={filterGigs} class="bg-swapee-purple focus:bg-swapee-purple active:scale-[0.98] active:border-b-2 transition-all border-2 border-b-4 border-black">Apply</Button>
     </form>
-    {#if data}  
-        <h1 class="text-2xl font-bold mt-4">{data.category}</h1>
         
         {#if data.gigs.length > 0}
             {#if filteredGigs.length > 0}
-                <section class="grid grid-cols-4 gap-6 mt-6">
+                <section class="grid grid-cols-4 gap-6 mt-6 items-stretch">
                     {#each filteredGigs as gig}
                         <a href={`${gig.user.username}/${gig.slug}`} transition:scale>
-                            <Card.Root>
-                                <Card.Header>
+                            <Card.Root class="shadow-lg shadow-gray-300 h-full border-[1px] border-black overflow-hidden">
+                                <Card.Header class="px-0 py-0 mb-4 border-b-[1px] border-black">
                                     {#each gig.imagesSrc as imgSrc}
                                         <img src={imgSrc} alt="">
                                     {/each}
                                 </Card.Header>
-                                <Card.Content>
-                                    <p>{gig.user.name}</p>
-                                    <Card.Title>{gig.title}</Card.Title>
+                                <Card.Content class="flex flex-wrap gap-y-4 items-center">
+                                    <img src={gig.user.profileImageSrc} class="w-8 h-8 rounded-full mr-2" alt="">
+                                    <p class="mb-2">{gig.user.name}</p>
+                                    <Card.Title class="flex-1">{gig.title}</Card.Title>
                                 </Card.Content>
                                 <Card.Footer>
-                                <p>Starting at: BTC {gig.startingAt.price}</p>
+                                <p>Starting at: <span class="text-swapee-purple font-bold">BTC {gig.startingAt.price}</span></p>
                                 </Card.Footer>
                             </Card.Root>
                         </a>
@@ -62,7 +64,7 @@
                 </section>
             {:else}
                 <p class="mt-6">We couldn't found any gigs with these filters! </p>
-                <Button class="mt-3" on:click={resetFilters}>Reset Filters</Button>
+                <Button class="mt-3 bg-swapee-purple focus:bg-swapee-purple active:scale-[0.98] active:border-b-2 transition-all border-2 border-b-4 border-black " on:click={resetFilters}>Reset Filters</Button>
             {/if}
         {:else}
             <p class="mt-6">Nos gigs found. :(</p>
